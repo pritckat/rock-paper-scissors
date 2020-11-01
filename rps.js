@@ -53,6 +53,22 @@ function game() {
         if (playerSelection !== 'rock' && playerSelection !== 'scissors' && playerSelection !== 'paper') {
             return "Please choose rock, paper, or scissors."
         }
-
+        computerSelection = computerPlay()
+        let gameResult = playRound(playerSelection, computerSelection)
+        let playerPoints = 0
+        let computerPoints = 0
+        switch (gameResult) {
+            case 0:
+                computerPoints++;
+                console.log(loseStatement(playerSelection, computerSelection));
+                break;
+            case 1:
+                playerPoints++;
+                console.log(winStatement(playerSelection, computerSelection));
+                break;
+            case 2:
+                console.log(tieStatement(playerSelection));
+                break;
+        }
     }
 }
