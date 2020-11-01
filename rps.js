@@ -73,5 +73,5 @@ function game() {
         }
     }
     console.log(`Game Over! Score: Player: ${playerPoints} Computer: ${computerPoints}`)
-
 }
+game()
