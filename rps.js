@@ -47,6 +47,8 @@ function tieStatement(playerSelection) {
 }
 
 function game() {
+    let playerPoints = 0
+    let computerPoints = 0
     for (let i = 0; i < 5; i++) {
         let x = prompt("Rock, Paper, or Scissors?");
         let playerSelection = x.toLowerCase().trim()
@@ -55,8 +57,7 @@ function game() {
         }
         computerSelection = computerPlay()
         let gameResult = playRound(playerSelection, computerSelection)
-        let playerPoints = 0
-        let computerPoints = 0
+
         switch (gameResult) {
             case 0:
                 computerPoints++;
@@ -71,4 +72,6 @@ function game() {
                 break;
         }
     }
+    console.log(`Game Over! Score: Player: ${playerPoints} Computer: ${computerPoints}`)
+
 }
