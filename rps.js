@@ -11,9 +11,27 @@ function playRound(playerSelection, computerSelection) {
     }
     else if (playerSelection === 'rock') {
         if (computerSelection === 'scissors') {
-
+            return winStatement(playerSelection, computerSelection)
+        }
+        else {
+            return loseStatement(playerSelection, computerSelection)
         }
     }
+    else if (playerSelection === 'scissors') {
+        if (computerSelection === 'paper') {
+            return winStatement(playerSelection, computerSelection)
+        }
+        else {
+            return loseStatement(playerSelection, computerSelection)
+        }
+    }
+    else if (computerSelection == 'rock') {
+        return winStatement(playerSelection, computerSelection)
+    }
+    else {
+        return loseStatement(playerSelection, computerSelection)
+    }
+
 }
 
 function winStatement(playerSelection, computerSelection) {
