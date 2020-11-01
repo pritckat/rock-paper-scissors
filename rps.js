@@ -41,3 +41,14 @@ function winStatement(playerSelection, computerSelection) {
 function loseStatement(playerSelection, computerSelection) {
     return `You lose! ${computerSelection} beats ${playerSelection}.`
 }
+
+function game() {
+    for (let i = 0; i < 5; i++) {
+        let x = prompt("Rock, Paper, or Scissors?");
+        let playerSelection = x.toLowerCase().trim()
+        if (playerSelection !== 'rock' && playerSelection !== 'scissors' && playerSelection !== 'paper') {
+            return "Please choose rock, paper, or scissors."
+        }
+        
+    }
+}
