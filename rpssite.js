@@ -70,8 +70,19 @@ function displayResult(switchNumber, compSel, playSel) {
     }
 }
 
-function newGame() {
-
+function endGame() {
+    display.textContent = "Game Over"
+    buttons.forEach((button) => {
+        button.disabled = true;
+    })
+    let a = document.createElement('a')
+    let linkText = document.createTextNode("Play Again?")
+    a.appendChild(linkText)
+    a.title = "This is the link";
+    a.href = "#"
+    display.appendChild(a)
+    
+    
 }
 
 buttons.forEach((button) => {
@@ -81,7 +92,7 @@ buttons.forEach((button) => {
         let result = playRound(playerSelection, computerSelection)
         displayResult(result, computerSelection, playerSelection)
         if (playerPoints ==5 || computerPoints == 5) {
-            display.textContent = "Game Over"
+                endGame();
         }
     })
 })
