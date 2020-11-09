@@ -52,16 +52,21 @@ function tieStatement(playerSelection) {
     return `It's a tie! Both players picked ${playerSelection}.`
 }
 
+function updateScore() {
+    computerScore.textContent = `Computer: ${computerPoints}`
+    playerScore.textContent = `Player: ${playerPoints}`
+}
+
 function displayResult(switchNumber, compSel, playSel) {
     switch (switchNumber) {
         case 0:
             computerPoints++;
-            computerScore.textContent = `Computer: ${computerPoints}`
+            updateScore();
             display.textContent = loseStatement(playSel, compSel);
             break;
         case 1:
             playerPoints++;
-            playerScore.textContent = `Player: ${playerPoints}`
+            updateScore();
             display.textContent = winStatement(playSel, compSel);
             break;
         case 2:
@@ -81,7 +86,15 @@ function endGame() {
     a.title = "This is the link";
     a.href = "#"
     display.appendChild(a)
-    
+    a.onclick = function(){
+        playerPoints = 0
+        computerPoints = 0
+        updateScore();
+        buttons.forEach((button) => {
+            button.disabled = false;
+        })
+        display.textContent = ""
+    }
     
 }
 
