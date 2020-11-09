@@ -78,6 +78,8 @@ function game() {
 const buttons = document.querySelectorAll('button')
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-        alert("clicked!")
+        let computerSelection = computerPlay()
+        let result = playRound(button.id, computerSelection)
+        console.log(result)
     })
 })
