@@ -49,7 +49,7 @@ function tieStatement(playerSelection) {
 function game() {
     let playerPoints = 0
     let computerPoints = 0
-    for (let i = 0; i < 5; i++) {
+    /*for (let i = 0; i < 5; i++) { */
         let x = prompt("Rock, Paper, or Scissors?");
         let playerSelection = x.toLowerCase().trim()
         if (playerSelection !== 'rock' && playerSelection !== 'scissors' && playerSelection !== 'paper') {
@@ -71,7 +71,13 @@ function game() {
                 console.log(tieStatement(playerSelection));
                 break;
         }
-    }
+    
     console.log(`Game Over! Score: Player: ${playerPoints} Computer: ${computerPoints}`)
 }
-game()
+
+const buttons = document.querySelectorAll('button')
+buttons.forEach((button) => {
+    button.addEventListener('click', () => {
+        alert("clicked!")
+    })
+})
