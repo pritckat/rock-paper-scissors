@@ -1,6 +1,9 @@
 const display = document.getElementById('results')
 const buttons = document.querySelectorAll('button')
-
+let computerScore = document.getElementById('computer score')
+let playerScore = document.getElementById('player score')
+let computerPoints = 0
+let playerPoints = 0
 function computerPlay() {
     const compChoice = ["rock", "paper", "scissors"]
     let randomIndex = Math.floor(Math.random()*compChoice.length);
@@ -49,43 +52,16 @@ function tieStatement(playerSelection) {
     return `It's a tie! Both players picked ${playerSelection}.`
 }
 
-function game() {
-    let playerPoints = 0
-    let computerPoints = 0
-    /*for (let i = 0; i < 5; i++) { */
-        let x = prompt("Rock, Paper, or Scissors?");
-        let playerSelection = x.toLowerCase().trim()
-        if (playerSelection !== 'rock' && playerSelection !== 'scissors' && playerSelection !== 'paper') {
-            return "Please choose rock, paper, or scissors."
-        }
-        computerSelection = computerPlay()
-        let gameResult = playRound(playerSelection, computerSelection)
-
-        switch (gameResult) {
-            case 0:
-                computerPoints++;
-                console.log(loseStatement(playerSelection, computerSelection));
-                break;
-            case 1:
-                playerPoints++;
-                console.log(winStatement(playerSelection, computerSelection));
-                break;
-            case 2:
-                console.log(tieStatement(playerSelection));
-                break;
-        }
-    
-    console.log(`Game Over! Score: Player: ${playerPoints} Computer: ${computerPoints}`)
-}
-
 function displayResult(switchNumber, compSel, playSel) {
     switch (switchNumber) {
         case 0:
-            //computerPoints++;
+            computerPoints++;
+            computerScore.textContent = `Computer: ${computerPoints}`
             display.textContent = loseStatement(playSel, compSel);
             break;
         case 1:
-            //playerPoints++;
+            playerPoints++;
+            playerScore.textContent = `Player: ${playerPoints}`
             display.textContent = winStatement(playSel, compSel);
             break;
         case 2:
