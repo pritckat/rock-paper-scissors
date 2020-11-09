@@ -1,3 +1,6 @@
+const display = document.getElementById('results')
+const buttons = document.querySelectorAll('button')
+
 function computerPlay() {
     const compChoice = ["rock", "paper", "scissors"]
     let randomIndex = Math.floor(Math.random()*compChoice.length);
@@ -75,11 +78,27 @@ function game() {
     console.log(`Game Over! Score: Player: ${playerPoints} Computer: ${computerPoints}`)
 }
 
-const buttons = document.querySelectorAll('button')
+function displayResult(switchNumber, compSel, playSel) {
+    switch (switchNumber) {
+        case 0:
+            //computerPoints++;
+            display.textContent = loseStatement(playSel, compSel);
+            break;
+        case 1:
+            //playerPoints++;
+            display.textContent = winStatement(playSel, compSel);
+            break;
+        case 2:
+            display.textContent = tieStatement(playSel);
+            break;
+    }
+}
+
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let computerSelection = computerPlay()
-        let result = playRound(button.id, computerSelection)
-        console.log(result)
+        let playerSelection = button.id
+        let result = playRound(playerSelection, computerSelection)
+        displayResult(result, computerSelection, playerSelection)
     })
 })
