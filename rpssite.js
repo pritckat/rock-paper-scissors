@@ -70,11 +70,19 @@ function displayResult(switchNumber, compSel, playSel) {
     }
 }
 
+function newGame() {
+
+}
+
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
         let computerSelection = computerPlay()
         let playerSelection = button.id
         let result = playRound(playerSelection, computerSelection)
         displayResult(result, computerSelection, playerSelection)
+        if (playerPoints ==5 || computerPoints == 5) {
+            display.textContent = "Game Over"
+        }
     })
 })
+
